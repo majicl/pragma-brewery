@@ -1,7 +1,7 @@
 import config from '../config/app.config.js';
 import HttpClient from '../commons/http.client.js';
 
-const { beers } = config.services;
+const { beers } = config().services;
 
 class BeerServices {
     static async getBeer(id) {

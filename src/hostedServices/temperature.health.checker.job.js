@@ -4,7 +4,7 @@ import socket from '../socket.js';
 import BeerServices from './../services/beer.services.js';
 
 export default () => {
-    JobService.run(monitorTemeratureHealth, config.monitor.cron);
+    JobService.run(monitorTemeratureHealth, config().monitor.cron);
 };
 
 const monitorTemeratureHealth = async () => {
