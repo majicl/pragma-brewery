@@ -4,7 +4,7 @@ import axios from 'axios';
 import HttpClient from './http.client.js';
 
 const expect = chai.expect;
-describe('HttpClient', function () {
+describe('HttpClient', () => {
     let axiosStub;
     before(() => {
         axiosStub = sinon.stub(axios, 'get').returns(
