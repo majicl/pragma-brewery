@@ -1,6 +1,7 @@
 const config = {};
 
 config.web = {};
+config.monitor = {};
 config.services = {
     beers: {
         temperatureSensorServiceBaseURL:
@@ -58,5 +59,7 @@ config.services = {
         ],
     },
 };
+
+config.monitor.cron = process.env.MONITOR_CRON || '*/1 * * * *';
 
 export default Object.freeze(config);
