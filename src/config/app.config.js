@@ -60,6 +60,6 @@ config.services = {
     },
 };
 
-config.monitor.cron = process.env.MONITOR_CRON || '*/1 * * * *';
+config.monitor.cron = process.env.MONITOR_CRON || '* * * * * *';
 
 export default Object.freeze(config);
