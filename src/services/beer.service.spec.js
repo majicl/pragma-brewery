@@ -55,10 +55,6 @@ describe('BearServices', () => {
         it('getBeersOutsideTemperatureIds() function should be called with the expected array response expectation', async () => {
             const result = await BearServices.getBeersOutsideTemperatureIds();
             expect(result).to.be.an('array');
-            result.forEach((beer) => {
-                expect(beer).to.have.property('id');
-                expect(beer).to.have.property('temperature');
-            });
         });
     });
 });
