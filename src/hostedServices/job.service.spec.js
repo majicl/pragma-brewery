@@ -14,7 +14,6 @@ describe('JobService', () => {
             const fn = () => {};
             run(fn, '*/1 * * * *');
             sinon.assert.alwaysCalledWith(schedulerStub, '*/1 * * * *', fn);
-            expect(schedulerStub.calledOnce);
         });
     });
 });
