@@ -15,7 +15,9 @@ describe('CustomErrors', () => {
     it('AppError', () => {
         const appErr = new AppError('an error has happened');
         expect(appErr).to.have.property('status').equals(500);
-        expect(appErr).to.have.property('message').equals('an error has happened');
+        expect(appErr)
+            .to.have.property('message')
+            .equals('an error has happened');
     });
     it('AppError with Status Code', () => {
         const appErr = new AppError('not found', 404);
@@ -26,7 +28,9 @@ describe('CustomErrors', () => {
     it('Alarm', () => {
         const appErr = new Alarm('an error has happened');
         expect(appErr).to.have.property('status').equals(500);
-        expect(appErr).to.have.property('message').equals('an error has happened');
+        expect(appErr)
+            .to.have.property('message')
+            .equals('an error has happened');
     });
     it('Alarm with Status Code', () => {
         const appErr = new Alarm('not found', 404);
