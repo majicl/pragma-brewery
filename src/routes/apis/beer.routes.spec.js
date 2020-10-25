@@ -37,7 +37,7 @@ describe('/beer', () => {
     it('should return 200', (done) => {
         const mockRequest = httpMocks.createRequest({
             method: 'GET',
-            url: '/'
+            url: '/',
         });
         let mockResponse = httpMocks.createResponse({
             eventEmitter: EventEmitter,

@@ -44,18 +44,15 @@ describe('BeerController', () => {
 
         it('should send 404 result if params does NOT have id', async () => {
             req.params.id = undefined;
-            beerServicesStub = sinon.stub(BeerServices, 'getBeer').returns(
-                Promise.resolve(null)
-            );
+            beerServicesStub = sinon
+                .stub(BeerServices, 'getBeer')
+                .returns(Promise.resolve(null));
             await BeerController.getBeer(req, res, next);
             expect(next.args[0][0]).to.have.property(
                 'msg',
                 'the beer not found'
             );
-            expect(next.args[0][0]).to.have.property(
-                'status',
-                404
-            );
+            expect(next.args[0][0]).to.have.property('status', 404);
         });
 
         it('should send 400 result if psomething gets wrong', async () => {
@@ -65,10 +62,7 @@ describe('BeerController', () => {
                 'msg',
                 'failed to fetch beer info'
             );
-            expect(next.args[0][0]).to.have.property(
-                'status',
-                400
-            );
+            expect(next.args[0][0]).to.have.property('status', 400);
         });
     });
 
@@ -79,18 +73,15 @@ describe('BeerController', () => {
         });
 
         it('should send 404 result if params does NOT have id', async () => {
-            beerServicesStub = sinon.stub(BeerServices, 'getBeer').returns(
-                Promise.resolve(null)
-            );
+            beerServicesStub = sinon
+                .stub(BeerServices, 'getBeer')
+                .returns(Promise.resolve(null));
             await BeerController.getBeers(req, res, next);
             expect(next.args[0][0]).to.have.property(
                 'msg',
                 'the beer not found'
             );
-            expect(next.args[0][0]).to.have.property(
-                'status',
-                404
-            );
+            expect(next.args[0][0]).to.have.property('status', 404);
         });
 
         it('should send 400 result if psomething gets wrong', async () => {
@@ -100,10 +91,7 @@ describe('BeerController', () => {
                 'msg',
                 'failed to fetch beers info'
             );
-            expect(next.args[0][0]).to.have.property(
-                'status',
-                400
-            );
+            expect(next.args[0][0]).to.have.property('status', 400);
         });
     });
 });

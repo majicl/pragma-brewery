@@ -7,7 +7,7 @@ import socket from './socket.js';
 // Start the HTTP Server using the Express App
 // -----------------------------------------------------------------------------
 const web = config.get().web;
-const port = web.port; 
+const port = web.port;
 const app = createApp();
 const server = createServer(app);
 socket.activate(server);

@@ -25,5 +25,4 @@ export const createApp = () => {
     return app;
 };
 
-const appErrorHandler = (err, _, res, next) => {
-};
+const appErrorHandler = (err, _, res, next) => {};
