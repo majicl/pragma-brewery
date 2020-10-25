@@ -21,7 +21,7 @@ describe('HttpClient', () => {
     });
     describe('get', () => {
         it('the httpClient get function should be called with the expected response', async () => {
-            var result = await HttpClient.get('https://www.google.com');
+            const result = await HttpClient.get('https://www.google.com');
             expect(result).to.have.property('data').eql({
                 id: 1,
                 temperature: -2,
