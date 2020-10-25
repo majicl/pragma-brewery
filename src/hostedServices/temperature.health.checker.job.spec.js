@@ -9,13 +9,18 @@ import config from '../config/app.config.js';
 const expect = chai.expect;
 describe('JobService', () => {
     let jobSpy;
-    let socketSpy;
-    let beerServicesSpy;
+    let socketStub;
+    let beerServicesStub;
     let configStub;
+    let beerResult = {
+        emit: () => {},
+    };
     before(() => {
         jobSpy = sinon.spy(JobService, 'run');
-        socketSpy = sinon.spy(socket, 'getActiveSocket');
-        beerServicesSpy = sinon.spy(
+        socketStub = sinon
+            .stub(socket, 'getActiveSocket')
+            .callsFake(() => beerResult);
+        beerServicesStub = sinon.spy(
             BeerServices,
             'getBeersOutsideTemperatureIds'
         );
@@ -26,18 +31,31 @@ describe('JobService', () => {
     });
     after(() => {
         jobSpy.restore();
-        socketSpy.restore();
-        beerServicesSpy.restore();
+        socketStub.restore();
+        beerServicesStub.restore();
         configStub.restore();
     });
 
     describe('temperatureHealthChecker', () => {
         it('temperatureHealthChecker -> job.service.run has been called', (done) => {
-            temperatureHealthChecker();
+            const timer = temperatureHealthChecker();
             sinon.assert.called(jobSpy);
             setTimeout(() => {
-                sinon.assert.called(socketSpy);
-                sinon.assert.called(beerServicesSpy);
+                sinon.assert.called(socketStub);
+                sinon.assert.called(beerServicesStub);
+                timer.stop();
+                done();
+            }, 1000);
+        });
+
+        it('temperatureHealthChecker(No Socket available) -> beerServices has never called', (done) => {
+            const timer = temperatureHealthChecker();
+            beerResult = null;
+            sinon.assert.called(jobSpy);
+            setTimeout(() => {
+                sinon.assert.called(socketStub);
+                sinon.assert.calledOnce(beerServicesStub);
+                timer.stop();
                 done();
             }, 1000);
         });
