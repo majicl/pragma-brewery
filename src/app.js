@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import { rootRouter } from './routes/index.js';
 import MonitorContainers from './hostedServices/temperature.health.checker.job.js';
-
+import GenerateDocuments from "./swagger.js";
 export const createApp = () => {
     // Create Express App
     const app = express();
@@ -21,7 +21,7 @@ export const createApp = () => {
 
     // Run Monitor Schedule
     MonitorContainers();
-
+    GenerateDocuments(app);
     return app;
 };
 
