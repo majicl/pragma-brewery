@@ -5,11 +5,11 @@
   "repository": "https://github.com/majicl/pragma-brewery.git",
   "author": "Majid Parvin <parvin.majid@outlook.com>",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "lint": "eslint src --ext .js",
     "format": "prettier --write src/**/*.js",
-    "test": "mocha --recursive src/**/*.spec.js src/**/**/*.spec.js --file .mocharc.json",
+    "test": "mocha --require @babel/register src/**/*.spec.js src/**/**/*.spec.js",
+    "test:watch": "mocha --require @babel/register --watch-extensions js --watch src/**/*.spec.js src/**/**/*.spec.js",
     "start": "nodemon --exec babel-node --inspect src/server.js"
   },
   "devDependencies": {
@@ -18,6 +18,7 @@
     "@babel/node": "^7.12.1",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
     "babel-eslint": "^10.1.0",
     "chai": "^4.2.0",
     "eslint": "^7.11.0",
@@ -34,6 +35,7 @@
     "node-cron": "^2.0.3",
     "node-mocks-http": "^1.9.0",
     "nodemon": "^2.0.6",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "ts-node-register": "^1.0.0"
   }
 }
