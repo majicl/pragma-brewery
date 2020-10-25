@@ -61,5 +61,5 @@ config.services = {
 };
 
 config.monitor.cron = process.env.MONITOR_CRON || '* * * * *';
-
+config.web.port = process.env.WEB_PORT || 8088;
 export default { get: () => Object.freeze(config) };
