@@ -12,7 +12,11 @@
     "test": "mocha --require @babel/register src/**/*.spec.js src/**/**/*.spec.js",
     "test:watch": "cross-env NODE_ENV=test mocha --require @babel/register --watch-extensions js --watch src/**/*.spec.js src/**/**/*.spec.js",
     "test:coverage": "cross-env NODE_ENV=test nyc --require @babel/register --reporter lcov --reporter text mocha --exit --recursive src",
-    "start": "nodemon --exec babel-node --inspect src/server.js"
+    "start": "nodemon --exec babel-node --inspect src/server.js",
+    "clean": "rimraf ./dist",
+    "build": "babel ./src -d ./dist -s",
+    "serve": "node ./dist/server.js",
+    "serve:prod": "NODE_ENV=production node ./dist/server.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
