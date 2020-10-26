@@ -5,7 +5,7 @@ import BeerMapper from './mappers/beer.mapper.js';
 const { beers } = config.get().services;
 
 class BeerServices {
-    static async getBeer(id) {
+    static async getRawBeer(id) {
         const response = await HttpClient.get(
             `${beers.temperatureSensorServiceBaseURL}${id}`
         );
@@ -13,7 +13,15 @@ class BeerServices {
             return null;
         }
 
-        return BeerMapper.map(response.data);
+        return response.data;
+    }
+    static async getBeer(id) {
+        const data = await BeerServices.getRawBeer(id);
+        if (!data) {
+            return null;
+        }
+
+        return BeerMapper.map(data);
     }
 
     static async getBeers() {
@@ -23,21 +31,17 @@ class BeerServices {
         return await Promise.all(beerInTypes);
     }
 
-    static async getBeersOutsideTemperatureIds() {
+    static async getRawBeers() {
         const beerInTypes = beers.types.map((type) =>
-            BeerServices.getBeer(`${type.id}`)
+            BeerServices.getRawBeer(`${type.id}`)
         );
-        const allBeers = await Promise.all(beerInTypes);
-        const inDangerBeers = allBeers.filter((beer) => {
-            return BeerServices.isOutsideTemperature(beer);
-        });
-
-        return inDangerBeers.map((_) => _.id);
+        const allRawBeers = await Promise.all(beerInTypes);
+        return new Map(allRawBeers);
     }
 
-    static isOutsideTemperature = (beer) =>
-        beer.currentTemperature < beer.temperature.min ||
-        beer.currentTemperature > beer.temperature.max;
+    // static isOutsideTemperature = (beer) =>
+    //     beer.currentTemperature < beer.temperature.min ||
+    //     beer.currentTemperature > beer.temperature.max;
 }
 
 export default BeerServices;
