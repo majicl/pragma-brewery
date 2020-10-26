@@ -2,6 +2,8 @@ import React from 'react';
 import openSocket from 'socket.io-client';
 import config from './config.js';
 
+export const eventHandler = () => {};
+
 export default class Socket extends React.Component {
   constructor(props) {
     super(props);
@@ -17,5 +19,3 @@ export default class Socket extends React.Component {
     return null;
   }
 }
-
-export const eventHandler = beersOutsideOfTemperature => {};

@@ -22,7 +22,9 @@
       "jsx-a11y/no-noninteractive-element-interactions": "off",
       "implicit-arrow-linebreak": "off",
       "max-len": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "react/no-array-index-key": "off",
+      "import/no-unresolved": "off"
     },
     "globals": {
       "document": "readonly",

@@ -7774,6 +7774,11 @@ type-is@~1.6.17, type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+type-to-reducer@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/type-to-reducer/-/type-to-reducer-1.2.0.tgz#b01c4250b8197d3b7c5c1f61b53845819945649d"
+  integrity sha512-BAC6aZxuoqhLyJSX+YWTZC4Znxe8cFU8hf83D89nqt3UJ5YSfBuNzfxHdqrvD/nUlEeJ2SqyZbtUJqfL/o8MNg==
+
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5.tgz#a97ee7a9ff42691b9f783ff1bc5112fe3fca9080"

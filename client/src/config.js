@@ -8,6 +8,6 @@ config.app.containerInformationProviderBaseUrl =
   'http://localhost:8088/api/v1/';
 config.socket = {
   url: 'http://localhost:8088/',
-  eventName: 'outside-temperature-beers'
+  eventName: 'outside-temperature-beers',
 };
 export default { get: () => Object.freeze(config) };
