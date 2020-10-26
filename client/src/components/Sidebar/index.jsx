@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default ({ MenuName, MenuItems = [] }) => {
+export default ({ menuName, menuItems = [] }) => {
   return (
     <nav className="sidebar sidebar-offcanvas" id="sidebar">
       <ul className="nav">
-        <li className="nav-item nav-category">{MenuName}</li>
+        <li className="nav-item nav-category">{menuName}</li>
 
-        {MenuItems.map((item) => (
-          <li className="nav-item">
+        {menuItems.map((item, index) => (
+          <li className="nav-item" key={index}>
             <a className="nav-link" href={item.uri}>
               <span className="icon-bg">
                 <i className="mdi mdi-cube menu-icon" />

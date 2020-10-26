@@ -28,7 +28,7 @@ describe('<Sidebar />', () => {
     const menuName = 'Dashboard';
     const {
       container: { firstChild: sidebar }
-    } = render(<Sidebar MenuName={menuName} />);
+    } = render(<Sidebar menuName={menuName} />);
 
     const menuTag = queryByClassName(sidebar, 'nav-item nav-category');
     expect(menuTag).not.toBeNull();
@@ -55,7 +55,7 @@ describe('<Sidebar />', () => {
         uri: '/beers'
       }
     ];
-    const sidebar = mount(<Sidebar MenuItems={menuItems} />);
+    const sidebar = mount(<Sidebar menuItems={menuItems} />);
     expect(sidebar.find('.nav-item')).toHaveLength(3);
   });
 });
