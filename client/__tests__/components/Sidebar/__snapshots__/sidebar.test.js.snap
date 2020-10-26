@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sidebar /> matches snapshot on responsive 1`] = `
+<nav
+  class="sidebar sidebar-offcanvas"
+  id="sidebar"
+>
+  <ul
+    class="nav"
+  >
+    <li
+      class="nav-item nav-category"
+    />
+  </ul>
+</nav>
+`;
