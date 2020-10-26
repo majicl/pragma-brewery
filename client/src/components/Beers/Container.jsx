@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './Container.scss';
 
 const BeerCard = ({
   name,
@@ -8,7 +9,7 @@ const BeerCard = ({
   isOutSideOfTemerature
 }) => {
   return (
-    <div className="card">
+    <div className={'card' + (isOutSideOfTemerature ? ' outside' : '')}>
       <div className="card-body text-center">
         <h5 className="mb-2 text-dark font-weight-normal">{name}</h5>
         <h2 className="mb-4 text-dark font-weight-bold">
@@ -19,14 +20,9 @@ const BeerCard = ({
           <i className="mdi mdi-oil-temperature icon-md absolute-center text-dark" />
         </div>
         {isOutSideOfTemerature ? (
-          <p
-            className="mt-4 mb-0"
-            style={{ backgroundColor: 'crimson', color: 'white' }}
-          >
-            Ouside
-          </p>
+          <p className="mt-4 mb-0 status-label">Ouside</p>
         ) : (
-          <p className="mt-4 mb-0">Normal</p>
+          <p className="mt-4 mb-0 status-label">Normal</p>
         )}
         <h4 className="mb-0 mt-2 text-dark">
           <span>Condition:</span>

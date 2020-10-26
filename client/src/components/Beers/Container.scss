@@ -1,0 +1,18 @@
+.card {
+    background-color: #14eda7 !important;
+    box-shadow: 0 0 5px 2px black;
+    transition: all 2s;
+    .status-label {
+        color: black;
+        font-weight: bold;
+    }
+}
+.outside {
+    background-color: crimson !important;
+    box-shadow: 0 0 13px 2px black;
+    transition: all 2s;
+    .status-label {
+        color: white;
+        font-weight: bold;
+    }
+}
