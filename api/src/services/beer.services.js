@@ -1,5 +1,6 @@
 import config from '../config/app.config.js';
 import HttpClient from '../commons/http.client.js';
+import BeerMapper from './mappers/beer.mapper.js';
 
 const { beers } = config.get().services;
 
@@ -12,7 +13,7 @@ class BeerServices {
             return null;
         }
 
-        return response.data;
+        return BeerMapper.map(response.data);
     }
 
     static async getBeers() {
@@ -28,16 +29,15 @@ class BeerServices {
         );
         const allBeers = await Promise.all(beerInTypes);
         const inDangerBeers = allBeers.filter((beer) => {
-            const type = beers.types.find((_) => _.id == beer.id);
-            return BeerServices.isOutsideTemperature(beer, type);
+            return BeerServices.isOutsideTemperature(beer);
         });
 
         return inDangerBeers.map((_) => _.id);
     }
 
-    static isOutsideTemperature = (beer, type) =>
-        beer.temperature < type.temperature.min ||
-        beer.temperature > type.temperature.max;
+    static isOutsideTemperature = (beer) =>
+        beer.currentTemperature < beer.temperature.min ||
+        beer.currentTemperature > beer.temperature.max;
 }
 
 export default BeerServices;
