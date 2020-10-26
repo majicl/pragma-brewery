@@ -42,7 +42,8 @@
   "globals": {
     "document": "readonly",
     "window": "readonly",
-    "navigator": "readonly"
+    "navigator": "readonly",
+    "fetch": "readonly"
   },
   "env": {
     "jest/globals": true

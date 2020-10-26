@@ -4,21 +4,17 @@ import config from './config.js';
 import { notifyBeersWithOutsideTemperature } from '~/Beers/state/beers.actions.js';
 import { store } from './store/index.js';
 
-export const eventHandler = beerIds => {
+export const eventHandler = (beerIds) => {
   console.count();
   store.dispatch(notifyBeersWithOutsideTemperature(beerIds));
 };
 
 class Socket extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const socketConfig = config.get().socket;
     const socket = openSocket(socketConfig.url);
     this.setState({
-      socket
+      socket,
     });
     socket.on(socketConfig.eventName, eventHandler);
   }
