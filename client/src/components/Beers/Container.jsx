@@ -31,7 +31,9 @@ const BeerCard = ({
         <h4 className="mb-0 mt-2 text-dark">
           <span>Condition:</span>
           {temperature.min}
-          °C -{temperature.max}
+          °C
+          <span> - </span>
+          {temperature.max}
           °C
         </h4>
       </div>
@@ -39,11 +41,21 @@ const BeerCard = ({
   );
 };
 
+const isOutsideTemperature = (currentTemperature, temperatureRange) =>
+  currentTemperature < temperatureRange.min ||
+  currentTemperature > temperatureRange.max;
+
 const mapStatetoProps = (state, props) => {
-  const { outsideOfTemperature = [] } = state.beers;
+  const { outsideOfTemperature } = state.beers;
+  const currentTemperature =
+    outsideOfTemperature[props.id] ?? props.currentTemperature;
 
   return {
-    isOutSideOfTemerature: outsideOfTemperature.some(id => id === props.id)
+    isOutSideOfTemerature: isOutsideTemperature(
+      currentTemperature,
+      props.temperature
+    ),
+    currentTemperature
   };
 };
 export default connect(mapStatetoProps)(BeerCard);
