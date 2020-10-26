@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import express from 'express';
+import cors from 'cors';
 import { rootRouter } from './routes/index.js';
 import MonitorContainers from './hostedServices/temperature.health.checker.job.js';
 import GenerateDocuments from './swagger.js';
@@ -14,9 +15,13 @@ export const createApp = () => {
 
     // Add middleware to parse application/json
     app.use(bodyParser.json());
+    
+    // Add Cors
+    app.use(cors());
 
     // Add routes
     app.use(rootRouter);
+
 
     // Add application error handler
     app.use(appErrorHandler);
