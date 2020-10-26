@@ -5,7 +5,6 @@ import { notifyBeersWithOutsideTemperature } from '~/Beers/state/beers.actions.j
 import { store } from './store/index.js';
 
 export const eventHandler = (beerIds) => {
-  console.count();
   store.dispatch(notifyBeersWithOutsideTemperature(beerIds));
 };
 
