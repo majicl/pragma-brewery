@@ -40,5 +40,6 @@ module.exports = {
       }
     ]
   },
+  devtool: 'source-map',
   plugins: [htmlPlugin, copyPlugin]
 };
