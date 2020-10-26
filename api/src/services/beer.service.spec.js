@@ -23,7 +23,21 @@ describe('BearServices', () => {
     after(() => {
         httpClientStub.restore();
     });
-
+    describe('getRawBeer', () => {
+        it('getRawBeer(1) function should be called with the expected object response expectation', async () => {
+            const result = await BearServices.getRawBeer(1);
+            expect(result).to.have.property('id').equal(1);
+            expect(result).to.have.property('temperature').equal(-2);
+        });
+        it('getRawBeer() function should be called with NULL response', async () => {
+            const result = await BearServices.getRawBeer();
+            expect(result).to.be.null;
+        });
+        it('getRawBeer(undefined) function should be called with the NULL response expectation', async () => {
+            const result = await BearServices.getRawBeer(undefined);
+            expect(result).to.be.null;
+        });
+    });
     describe('getBeer', () => {
         it('getBeer(1) function should be called with the expected object response expectation', async () => {
             const result = await BearServices.getBeer(1);
@@ -51,10 +65,10 @@ describe('BearServices', () => {
         });
     });
 
-    describe('getBeersOutsideTemperatureIds', () => {
-        it('getBeersOutsideTemperatureIds() function should be called with the expected array response expectation', async () => {
-            const result = await BearServices.getBeersOutsideTemperatureIds();
-            expect(result).to.be.an('array');
+    describe('getRawBeers', () => {
+        it('getRawBeers() function should be called with the expected array response expectation', async () => {
+            const result = await BearServices.getRawBeers();
+            expect(result).to.be.an('Map').that.is.not.empty;;
         });
     });
 });
