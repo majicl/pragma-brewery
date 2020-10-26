@@ -7,8 +7,17 @@
         font-weight: bold;
     }
 }
-.outside {
+.hot {
     background-color: crimson !important;
+    box-shadow: 0 0 13px 2px black;
+    transition: all 2s;
+    .status-label {
+        color: white;
+        font-weight: bold;
+    }
+}
+.cold {
+    background-color: #147fed !important;
     box-shadow: 0 0 13px 2px black;
     transition: all 2s;
     .status-label {
