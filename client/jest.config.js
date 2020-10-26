@@ -10,7 +10,7 @@ module.exports = {
   testMatch: ['**/__tests__/**/*.[jt]s?(x)'],
   testURL: 'http://localhost',
   moduleNameMapper: {
-    '~(.*)$': '<rootDir>/src/$1',
+    '~(.*)$': '<rootDir>/src/components/$1',
     '\\.(css|scss|sass)$': '<rootDir>/__mocks__/styleMock.js'
   }
 };

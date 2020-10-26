@@ -4,12 +4,10 @@ import Socket from './Socket';
 import ErrorBoundary from './error-boundary.js';
 import configureStore from './store/index.js';
 
-export default () => {
-  return (
-    <Provider store={configureStore()}>
-      <ErrorBoundary>
-        <Socket />
-      </ErrorBoundary>
-    </Provider>
-  );
-};
+export default () => (
+  <Provider store={configureStore()}>
+    <ErrorBoundary>
+      <Socket />
+    </ErrorBoundary>
+  </Provider>
+);

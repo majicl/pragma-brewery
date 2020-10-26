@@ -9,7 +9,7 @@ export const createActionTypeMap = (prefix, actionTypeArray) => {
 };
 
 export const handleActions = (initialState, reducerMap) => {
-  const createRejectionReducer = subReducer => (state, action) => {
+  const createRejectionReducer = (subReducer) => (state, action) => {
     try {
       return subReducer(state, action);
     } catch (e) {
@@ -19,7 +19,7 @@ export const handleActions = (initialState, reducerMap) => {
     }
   };
 
-  const createFulfillingReducer = subReducer => (state, action) => {
+  const createFulfillingReducer = (subReducer) => (state, action) => {
     try {
       return subReducer(state, action);
     } catch (e) {
