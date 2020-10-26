@@ -1,4 +1,21 @@
 const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+
+const copyPlugin = new CopyPlugin({
+  patterns: [
+    { from: "./assets/images", to: "./images" },
+    { from: "./assets/css", to: "./css" },
+    {
+        from: "./assets/fonts",
+        to: "./fonts"
+      }
+  ]
+});
+const htmlPlugin = new HtmlWebPackPlugin({
+  template: "./assets/layout.html",
+  filename: "./index.html"
+});
 
 module.exports = () => {
   return {
@@ -22,6 +39,7 @@ module.exports = () => {
       historyApiFallback: true,
       contentBase: path.join(__dirname, "dist"),
       port: 3000
-    }
+    },
+    plugins: [htmlPlugin, copyPlugin]
   };
 };
