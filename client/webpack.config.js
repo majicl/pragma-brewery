@@ -1,45 +1,44 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const copyPlugin = new CopyPlugin({
   patterns: [
-    { from: "./assets/images", to: "./images" },
-    { from: "./assets/css", to: "./css" },
+    { from: './assets/images', to: './images' },
+    { from: './assets/css', to: './css' },
     {
-        from: "./assets/fonts",
-        to: "./fonts"
-      }
+      from: './assets/fonts',
+      to: './fonts'
+    }
   ]
 });
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./assets/layout.html",
-  filename: "./index.html"
+  template: './assets/layout.html',
+  filename: './index.html'
 });
 
-module.exports = () => {
-  return {
-    entry: "./src/index.js",
-    output: {
-      filename: "[name].bundle.js",
-      path: path.resolve(__dirname, "dist"),
-      publicPath: "/" 
-    },
-    module: {
-      rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          loader: "babel-loader"
-        },
-      ]
-    },
-    devtool: "cheap-module-eval-source-map",
-    devServer: {
-      historyApiFallback: true,
-      contentBase: path.join(__dirname, "dist"),
-      port: 3000
-    },
-    plugins: [htmlPlugin, copyPlugin]
-  };
+module.exports = {
+  entry: './src/index.js',
+  mode: 'development',
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, 'dist'),
+    port: 3000
+  },
+  output: {
+    publicPath: 'http://localhost:3000/'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          presets: ['@babel/preset-react']
+        }
+      }
+    ]
+  },
+  plugins: [htmlPlugin, copyPlugin]
 };
