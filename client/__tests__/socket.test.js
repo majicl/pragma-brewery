@@ -4,7 +4,7 @@ import { shallow, configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import io from 'socket.io-client';
 import Socket, { eventHandler } from '../src/Socket.js';
-import config from '../config.js';
+import config from '../src/config.js';
 
 configure({ adapter: new Adapter() });
 
@@ -34,7 +34,7 @@ describe('<Socket />', () => {
     const socket = io();
     expect(socket.on).toHaveBeenCalledWith(
       socketConfigs.eventName,
-      ceventHandler
+      eventHandler
     );
   });
 });

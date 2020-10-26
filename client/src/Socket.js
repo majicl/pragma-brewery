@@ -1,5 +1,6 @@
 import React from 'react';
 import openSocket from 'socket.io-client';
+import config from './config.js';
 
 export default class Socket extends React.Component {
   constructor(props) {
@@ -7,11 +8,14 @@ export default class Socket extends React.Component {
     this.state = {};
   }
   componentDidMount() {
-    const socket = openSocket('http://localhost:8088');
-    socket.on('outside-temperature-beers', console.log);
+    const socketConfig = config.get().socket;
+    const socket = openSocket(socketConfig.url);
+    socket.on(socketConfig.eventName, eventHandler);
   }
 
   render() {
     return null;
   }
 }
+
+export const eventHandler = beersOutsideOfTemperature => {};
