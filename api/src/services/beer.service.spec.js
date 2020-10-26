@@ -68,7 +68,7 @@ describe('BearServices', () => {
     describe('getRawBeers', () => {
         it('getRawBeers() function should be called with the expected array response expectation', async () => {
             const result = await BearServices.getRawBeers();
-            expect(result).to.be.an('Map').that.is.not.empty;;
+            expect(result).to.be.an('Object').that.is.not.empty;;
         });
     });
 });

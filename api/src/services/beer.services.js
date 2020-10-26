@@ -36,12 +36,10 @@ class BeerServices {
             BeerServices.getRawBeer(`${type.id}`)
         );
         const allRawBeers = await Promise.all(beerInTypes);
-        return new Map(allRawBeers);
+        return Object.fromEntries(
+            allRawBeers.map(e => [e.id, e.temperature])
+         )
     }
-
-    // static isOutsideTemperature = (beer) =>
-    //     beer.currentTemperature < beer.temperature.min ||
-    //     beer.currentTemperature > beer.temperature.max;
 }
 
 export default BeerServices;
