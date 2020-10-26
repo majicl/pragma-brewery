@@ -41,13 +41,13 @@ module.exports = {
     ]
   },
   resolve: {
-		modules: ['node_modules'],
-		extensions: ['.ts', '.tsx', '.js', '.json'],
-		alias: {
-			'~': path.resolve(__dirname, 'src/components'),
-			handlebars: 'handlebars/dist/handlebars.js'
-		}
-	},
+    modules: ['node_modules'],
+    extensions: ['.jsx', '.js', '.json'],
+    alias: {
+      '~': path.resolve(__dirname, 'src/components'),
+      handlebars: 'handlebars/dist/handlebars.js'
+    }
+  },
   devtool: 'source-map',
   plugins: [htmlPlugin, copyPlugin]
 };
