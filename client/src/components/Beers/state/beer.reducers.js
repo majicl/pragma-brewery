@@ -4,12 +4,12 @@ import types from './beers.types.js';
 const { NOTIFY_OUTSIDE_TEMPERATURE } = types;
 
 const INITIAL_STATE = {
-  outSideOfTemperature: [],
+  outsideOfTemperature: [],
 };
 
 const reducers = {
   [NOTIFY_OUTSIDE_TEMPERATURE]: (state, data) => {
-    return { ...state, outSideOfTemperature: [...data.beers] };
+    return { ...state, outsideOfTemperature: [...data.beers] };
   },
 };
 
