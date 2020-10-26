@@ -28,7 +28,7 @@ describe('BearServices', () => {
         it('getBeer(1) function should be called with the expected object response expectation', async () => {
             const result = await BearServices.getBeer(1);
             expect(result).to.have.property('id').equal(1);
-            expect(result).to.have.property('temperature').equal(-2);
+            expect(result).to.have.property('currentTemperature').equal(-2);
         });
         it('getBeer() function should be called with NULL response', async () => {
             const result = await BearServices.getBeer();
