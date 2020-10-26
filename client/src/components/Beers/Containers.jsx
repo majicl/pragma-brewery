@@ -40,11 +40,14 @@ export default ({ dashboardName, sectionName }) => {
                 aria-labelledby="business-tab"
               >
                 <div className="row">
-                  <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                    {beers.map(beer => (
-                      <Container key={beer.id} {...beer} />
-                    ))}
-                  </div>
+                  {beers.map(beer => (
+                    <div
+                      key={beer.id}
+                      className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card"
+                    >
+                      <Container {...beer} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
