@@ -20,7 +20,9 @@
       "operator-linebreak": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-noninteractive-element-interactions": "off",
-      "implicit-arrow-linebreak": "off"
+      "implicit-arrow-linebreak": "off",
+      "max-len": "off",
+      "import/extensions": "off"
     },
     "globals": {
       "document": "readonly",

@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --open --hot",
-    "lint": "eslint src/**/*.js",
-    "lint:fix": "eslint src/**/*.js --fix"
+    "lint": "eslint src --ext .jsx,.js",
+    "lint:fix": "eslint src --ext .jsx,.js --fix"
   },
   "dependencies": {
     "react": "^17.0.1",
