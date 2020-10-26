@@ -15,7 +15,5 @@ RUN yarn install
 # Bundle app source
 COPY . .
 
-EXPOSE 8088
-RUN yarn run clean
-RUN yarn run build
-CMD ["yarn" ,"run" ,"serve:prod"]
+EXPOSE 3000
+CMD ["yarn", "run", "start"]
