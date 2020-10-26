@@ -22,7 +22,7 @@ describe('JobService', () => {
             .callsFake(() => beerResult);
         beerServicesStub = sinon.spy(
             BeerServices,
-            'getBeersOutsideTemperatureIds'
+            'getRawBeers'
         );
 
         configStub = sinon.stub(config, 'get').returns({

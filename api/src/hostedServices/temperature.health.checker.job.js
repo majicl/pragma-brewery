@@ -12,7 +12,7 @@ const monitorTemeratureHealth = async () => {
     try {
         const io = socket.getActiveSocket();
         if (io) {
-            const outsideTemperatureBeerids = await BeerServices.getBeersOutsideTemperatureIds();
+            const outsideTemperatureBeerids = await BeerServices.getRawBeers();
             io.emit('outside-temperature-beers', outsideTemperatureBeerids);
         }
     } catch (error) {
