@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { mount, configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { render, queryHelpers } from '@testing-library/react';
-import Sidebar from '../../../src/components/Sidebar/index.jsx';
+import Sidebar from '~/Sidebar/index.jsx';
 
 configure({ adapter: new Adapter() });
 const queryByClassName = queryHelpers.queryByAttribute.bind(null, 'class');

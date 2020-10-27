@@ -10,6 +10,7 @@ const BeerCard = ({
 }) => {
   return (
     <div
+      data-testid="card"
       className={
         'card' +
         (status === Status.COLD ? ' cold' : status === Status.HOT ? ' hot' : '')
@@ -24,7 +25,7 @@ const BeerCard = ({
         <div className="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent">
           <i className="mdi mdi-oil-temperature icon-md absolute-center text-dark" />
         </div>
-        <p className="mt-4 mb-0 status-label">{status.description}</p>
+        <p className="mt-4 mb-0 status-label" data-testid="status-label">{status.description}</p>
         <h4 className="mb-0 mt-2 text-dark">
           <span>Condition:</span>
           {temperature.min}

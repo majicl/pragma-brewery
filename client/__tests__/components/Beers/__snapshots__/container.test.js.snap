@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Container /> matches snapshot on responsive 1`] = `
+<div
+  class="card"
+  data-testid="card"
+>
+  <div
+    class="card-body text-center"
+  >
+    <h5
+      class="mb-2 text-dark font-weight-normal"
+    />
+    <h2
+      class="mb-4 text-dark font-weight-bold"
+    >
+      1
+      °C
+    </h2>
+    <div
+      class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"
+    >
+      <i
+        class="mdi mdi-oil-temperature icon-md absolute-center text-dark"
+      />
+    </div>
+    <p
+      class="mt-4 mb-0 status-label"
+      data-testid="status-label"
+    >
+      Normal
+    </p>
+    <h4
+      class="mb-0 mt-2 text-dark"
+    >
+      <span>
+        Condition:
+      </span>
+      -1
+      °C
+      <span>
+         - 
+      </span>
+      3
+      °C
+    </h4>
+  </div>
+</div>
+`;
