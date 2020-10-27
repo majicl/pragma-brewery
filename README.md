@@ -29,8 +29,9 @@ The project consists of two projects. One handles the backend part and tries to 
 - Clean up test libraries
 - Make configuration useable in the prod environment
 - Add a test coverage in the frontend
-- Make the error handling better
+- Make the error handling better (.e.g if socket gets down)
 - Enhance the UI
+- Clean up packages
 
 
 ## How to run
@@ -114,3 +115,8 @@ Production serve
 ```
 yarn start
 ```
+
+## Frameworks and Libraries
+In the backend: NodeJS, express, babel, nodemon, swagger-ui-express, axios, mocha, chai, sinon
+
+In the frontend: React, Redux, babel, webpack, jest, enzyme, node-sass
