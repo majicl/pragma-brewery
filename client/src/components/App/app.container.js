@@ -7,8 +7,8 @@ export default () => {
   const menuItems = [
     {
       title: 'Dashboard',
-      uri: '/'
-    }
+      uri: '/',
+    },
   ];
 
   return (

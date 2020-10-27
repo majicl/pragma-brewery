@@ -37,7 +37,8 @@
     "max-len": "off",
     "import/extensions": "off",
     "react/no-array-index-key": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "no-use-before-define": "off"
   },
   "globals": {
     "document": "readonly",
