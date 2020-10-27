@@ -40,6 +40,7 @@ export default ({ dashboardName, sectionName }) => {
                 aria-labelledby="business-tab"
               >
                 <div className="row">
+                  {beers.length === 0 && <i>Loading...</i>}
                   {beers.map((beer) => (
                     <div
                       key={beer.id}
