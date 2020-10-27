@@ -29,6 +29,8 @@ The project consists of two projects. One handles the backend part and tries to 
 - Clean up test libraries
 - Make configuration useable in the prod environment
 - Add a test coverage in the frontend
+- Make the error handling better
+- Enhance the UI
 
 
 ## How to run
