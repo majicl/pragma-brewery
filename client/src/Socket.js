@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import openSocket from 'socket.io-client';
 import config from './config.js';
 import { notifyBeersWithOutsideTemperature } from '~/Beers/state/beers.actions.js';
@@ -8,25 +8,16 @@ export const eventHandler = (beerIds) => {
   store.dispatch(notifyBeersWithOutsideTemperature(beerIds));
 };
 
-class Socket extends React.Component {
-  componentDidMount() {
-    const socketConfig = config.get().socket;
-    const socket = openSocket(socketConfig.url);
-    this.setState({
-      socket,
-    });
+export default () => {
+  const socketConfig = config.get().socket;
+  const [socket] = useState(openSocket(socketConfig.url));
+  useEffect(() => {
     socket.on(socketConfig.eventName, eventHandler);
-  }
-
-  componentWillUnmount() {
-    if (this.state.socket) {
-      this.state.socket.io.disconnect();
-    }
-  }
-
-  render() {
-    return null;
-  }
-}
-
-export default Socket;
+    return () => {
+      if (socket.io) {
+        socket.io.disconnect();
+      }
+    };
+  });
+  return null;
+};
